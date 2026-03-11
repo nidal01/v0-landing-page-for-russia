@@ -36,7 +36,7 @@ export function Navbar() {
             alt="Romano Botta"
             width={160}
             height={56}
-            className="h-12 w-auto object-contain"
+            className="h-12 w-auto object-contain brightness-0 invert"
             priority
           />
         </a>
