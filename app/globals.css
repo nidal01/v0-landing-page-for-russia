@@ -97,11 +97,20 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+    /* space at bottom on mobile for sticky contact bar */
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (max-width: 767px) {
+    body {
+      padding-bottom: 64px;
+    }
   }
 }
 

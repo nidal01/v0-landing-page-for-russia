@@ -30,9 +30,9 @@ export function Reveal({ children, className = "", delay = 0, direction = "up" }
   }, [])
 
   const transforms: Record<string, string> = {
-    up: "translateY(32px)",
-    left: "translateX(-32px)",
-    right: "translateX(32px)",
+    up: "translateY(28px)",
+    left: "translateY(28px)",   // use Y only to prevent horizontal overflow
+    right: "translateY(28px)",  // use Y only to prevent horizontal overflow
     fade: "none",
   }
 
