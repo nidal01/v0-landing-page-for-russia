@@ -32,24 +32,24 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-secondary">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+    <section id="contact" className="py-16 sm:py-24 bg-secondary">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-start">
           {/* Left: info + messaging buttons */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-6 sm:gap-8">
             <div>
               <p className="text-xs tracking-[0.4em] uppercase mb-3 font-medium text-accent">
                 Связаться с нами
               </p>
               <h2
-                className="text-4xl md:text-5xl font-light mb-4 text-balance"
+                className="text-3xl sm:text-4xl md:text-5xl font-light mb-4 text-balance"
                 style={{ fontFamily: "Georgia, serif" }}
               >
                 Начните
                 <br />
                 сотрудничество
               </h2>
-              <p className="text-muted-foreground leading-relaxed max-w-md">
+              <p className="text-muted-foreground leading-relaxed max-w-md text-sm sm:text-base">
                 Заполните форму или напишите нам напрямую. Наш менеджер ответит в течение нескольких
                 часов и подготовит индивидуальное коммерческое предложение.
               </p>

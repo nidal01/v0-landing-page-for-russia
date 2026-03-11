@@ -20,27 +20,27 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-16 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-16 w-full">
         <div className="max-w-2xl">
           {/* Logo mark */}
-          <div className="mb-8">
+          <div className="mb-6 sm:mb-8">
             <Image
               src="/images/romano-botta-logo-nobg.webp"
               alt="Romano Botta"
-              width={220}
-              height={80}
-              className="h-16 w-auto object-contain brightness-0 invert"
+              width={180}
+              height={64}
+              className="h-12 sm:h-16 w-auto object-contain brightness-0 invert"
             />
           </div>
 
           {/* Pre-heading */}
-          <p className="text-xs tracking-[0.45em] uppercase mb-5 font-medium text-[#C9A96E]">
+          <p className="text-xs tracking-[0.35em] sm:tracking-[0.45em] uppercase mb-4 sm:mb-5 font-medium text-[#C9A96E]">
             Итальянский бренд · Оптовая торговля
           </p>
 
           {/* Heading */}
           <h1
-            className="text-5xl md:text-7xl font-light leading-[1.08] mb-6 text-balance"
+            className="text-4xl sm:text-5xl md:text-7xl font-light leading-[1.1] sm:leading-[1.08] mb-5 sm:mb-6 text-balance"
             style={{ fontFamily: "Georgia, serif", color: "rgba(255,255,255,0.96)" }}
           >
             Премиальная
@@ -50,21 +50,21 @@ export function HeroSection() {
             <span style={{ color: "#C9A96E" }}>оптом</span>
           </h1>
 
-          <p className="text-lg md:text-xl leading-relaxed mb-3 font-light text-white/70">
+          <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-3 font-light text-white/70">
             Рубашки, костюмы, поло и спортивные костюмы итальянского производства.
             <strong className="font-semibold text-white"> Поставки в Россию и тюркские республики.</strong>
           </p>
-          <p className="text-sm leading-relaxed mb-10 text-white/45">
+          <p className="text-xs sm:text-sm leading-relaxed mb-8 sm:mb-10 text-white/45">
             Минимальный заказ от 50 единиц · Доставка по всему СНГ · Полный пакет документов
           </p>
 
           {/* CTA buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 flex-wrap">
+          <div className="flex flex-col xs:flex-row gap-3 flex-wrap">
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-semibold tracking-widest uppercase bg-[#25D366] hover:bg-[#1ebe5d] text-white transition-colors duration-200"
+              className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-4 text-sm font-semibold tracking-widest uppercase bg-[#25D366] hover:bg-[#1ebe5d] text-white transition-colors duration-200"
             >
               <WhatsAppIcon />
               WhatsApp
@@ -73,21 +73,21 @@ export function HeroSection() {
               href={TELEGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-semibold tracking-widest uppercase bg-[#229ED9] hover:bg-[#1a8fc4] text-white transition-colors duration-200"
+              className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-4 text-sm font-semibold tracking-widest uppercase bg-[#229ED9] hover:bg-[#1a8fc4] text-white transition-colors duration-200"
             >
               <TelegramIcon />
               Telegram
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold tracking-widest uppercase border border-[#C9A96E] text-[#C9A96E] hover:bg-[#C9A96E] hover:text-[#1a1a1a] transition-all duration-200"
+              className="inline-flex items-center justify-center px-6 sm:px-8 py-4 text-sm font-semibold tracking-widest uppercase border border-[#C9A96E] text-[#C9A96E] hover:bg-[#C9A96E] hover:text-[#1a1a1a] transition-all duration-200"
             >
               Запросить каталог
             </a>
           </div>
 
           {/* Trust bar */}
-          <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div className="mt-10 sm:mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
             {[
               { value: "15+", label: "лет на рынке" },
               { value: "2 000+", label: "моделей" },
@@ -95,7 +95,7 @@ export function HeroSection() {
               { value: "500+", label: "партнёров" },
             ].map((stat) => (
               <div key={stat.label} className="flex flex-col">
-                <span className="text-3xl font-bold text-[#C9A96E]" style={{ fontFamily: "Georgia, serif" }}>
+                <span className="text-2xl sm:text-3xl font-bold text-[#C9A96E]" style={{ fontFamily: "Georgia, serif" }}>
                   {stat.value}
                 </span>
                 <span className="text-xs tracking-wider uppercase mt-1 text-white/45">

@@ -42,22 +42,22 @@ const benefits = [
 
 export function BenefitsSection() {
   return (
-    <section id="benefits" className="py-24 bg-secondary">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="benefits" className="py-16 sm:py-24 bg-secondary">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <Reveal>
-          <div className="max-w-2xl mb-16">
+          <div className="max-w-2xl mb-10 sm:mb-16">
             <p className="text-xs tracking-[0.4em] uppercase mb-3 font-medium text-[#C9A96E]">
               Почему Romano Botta
             </p>
             <h2
-              className="text-4xl md:text-5xl font-light mb-4 text-balance"
+              className="text-3xl sm:text-4xl md:text-5xl font-light mb-4 text-balance"
               style={{ fontFamily: "Georgia, serif" }}
             >
               Ваш надёжный партнёр
               <br />в оптовой торговле
             </h2>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
               Мы поставляем премиальную мужскую одежду оптом в Россию и страны СНГ уже более 15 лет.
               Доверие сотен дистрибьюторов — наша лучшая рекомендация.
             </p>
@@ -65,10 +65,10 @@ export function BenefitsSection() {
         </Reveal>
 
         {/* Benefits grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {benefits.map((benefit, i) => (
             <Reveal key={benefit.title} delay={i * 70} direction="up">
-              <div className="flex flex-col gap-4 p-8 bg-background border border-border hover:border-[#C9A96E] hover:shadow-md transition-all duration-300 group h-full">
+              <div className="flex flex-col gap-4 p-6 sm:p-8 bg-background border border-border hover:border-[#C9A96E] hover:shadow-md transition-all duration-300 group h-full">
                 <div className="text-[#C9A96E] group-hover:scale-110 transition-transform duration-200 w-fit">
                   {benefit.icon}
                 </div>
@@ -81,16 +81,16 @@ export function BenefitsSection() {
 
         {/* Mid-page CTA strip */}
         <Reveal delay={100}>
-          <div className="mt-16 p-8 md:p-12 bg-[#1a1a1a] flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="mt-12 sm:mt-16 p-6 sm:p-8 md:p-12 bg-[#1a1a1a] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
-              <h3 className="text-2xl font-light text-white mb-2" style={{ fontFamily: "Georgia, serif" }}>
+              <h3 className="text-xl sm:text-2xl font-light text-white mb-2" style={{ fontFamily: "Georgia, serif" }}>
                 Готовы начать сотрудничество?
               </h3>
               <p className="text-sm text-white/55">
                 Свяжитесь с нами прямо сейчас — ответим в течение нескольких минут.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+            <div className="flex flex-col xs:flex-row gap-3 shrink-0 w-full md:w-auto">
               <a
                 href="https://wa.me/905XXXXXXXXX?text=Здравствуйте!%20Хочу%20узнать%20об%20оптовых%20условиях%20Romano%20Botta."
                 target="_blank"

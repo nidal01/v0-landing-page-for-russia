@@ -46,16 +46,16 @@ export function TestimonialsSection() {
   const [active, setActive] = useState(0)
 
   return (
-    <section id="testimonials" className="py-24 bg-[#1a1a1a] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="testimonials" className="py-16 sm:py-24 bg-[#1a1a1a] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <Reveal>
-          <div className="text-center mb-14">
+          <div className="text-center mb-10 sm:mb-14">
             <p className="text-xs tracking-[0.4em] uppercase mb-3 font-medium text-[#C9A96E]">
               Отзывы партнёров
             </p>
             <h2
-              className="text-4xl md:text-5xl font-light text-white text-balance"
+              className="text-3xl sm:text-4xl md:text-5xl font-light text-white text-balance"
               style={{ fontFamily: "Georgia, serif" }}
             >
               Нам доверяют
@@ -68,32 +68,32 @@ export function TestimonialsSection() {
         {/* Featured testimonial */}
         <Reveal delay={100}>
           <div
-            className="relative p-8 md:p-12 border mb-8"
+            className="relative p-6 sm:p-8 md:p-12 border mb-6 sm:mb-8"
             style={{ borderColor: "rgba(201,169,110,0.3)", backgroundColor: "rgba(255,255,255,0.03)" }}
           >
-            <div className="text-6xl font-bold leading-none mb-6 text-[#C9A96E]" style={{ fontFamily: "Georgia, serif" }}>
+            <div className="text-5xl sm:text-6xl font-bold leading-none mb-4 sm:mb-6 text-[#C9A96E]" style={{ fontFamily: "Georgia, serif" }}>
               "
             </div>
-            <p className="text-white/85 text-lg md:text-xl leading-relaxed mb-8 max-w-3xl">
+            <p className="text-white/85 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8 max-w-3xl">
               {testimonials[active].content}
             </p>
-            <div className="flex items-center justify-between flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="flex items-center gap-4">
                 <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold text-[#1a1a1a] shrink-0"
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold text-[#1a1a1a] shrink-0"
                   style={{ backgroundColor: "#C9A96E" }}
                 >
                   {testimonials[active].initials}
                 </div>
                 <div>
-                  <div className="font-semibold text-white">{testimonials[active].name}</div>
-                  <div className="text-sm text-white/50">
+                  <div className="font-semibold text-white text-sm sm:text-base">{testimonials[active].name}</div>
+                  <div className="text-xs sm:text-sm text-white/50">
                     {testimonials[active].role} · {testimonials[active].city}
                   </div>
                 </div>
               </div>
               {/* Dots nav */}
-              <div className="flex gap-2">
+              <div className="flex gap-2 self-end sm:self-auto">
                 {testimonials.map((_, i) => (
                   <button
                     key={i}
@@ -112,27 +112,27 @@ export function TestimonialsSection() {
         </Reveal>
 
         {/* Mini cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3">
           {testimonials.map((t, i) => (
             <Reveal key={t.name} delay={i * 60} direction="up">
               <button
                 onClick={() => setActive(i)}
-                className="w-full text-left p-4 border transition-all duration-200"
+                className="w-full text-left p-3 sm:p-4 border transition-all duration-200"
                 style={{
                   borderColor: active === i ? "#C9A96E" : "rgba(201,169,110,0.15)",
                   backgroundColor: active === i ? "rgba(201,169,110,0.08)" : "rgba(255,255,255,0.02)",
                 }}
               >
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center gap-2 mb-1">
                   <div
-                    className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-[#1a1a1a] shrink-0"
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs font-bold text-[#1a1a1a] shrink-0"
                     style={{ backgroundColor: active === i ? "#C9A96E" : "rgba(201,169,110,0.4)" }}
                   >
                     {t.initials}
                   </div>
                   <div>
-                    <div className="text-xs font-semibold text-white">{t.name}</div>
-                    <div className="text-xs text-white/40">{t.city}</div>
+                    <div className="text-xs font-semibold text-white leading-tight">{t.name}</div>
+                    <div className="text-xs text-white/40 leading-tight">{t.city}</div>
                   </div>
                 </div>
               </button>
@@ -142,13 +142,13 @@ export function TestimonialsSection() {
 
         {/* CTA strip */}
         <Reveal delay={200}>
-          <div className="mt-14 text-center">
+          <div className="mt-10 sm:mt-14 text-center">
             <p className="text-white/50 text-sm mb-5">
               Присоединяйтесь к сотням успешных партнёров Romano Botta
             </p>
             <a
               href="#contact"
-              className="inline-flex items-center justify-center px-10 py-4 text-sm font-semibold tracking-widest uppercase border border-[#C9A96E] text-[#C9A96E] hover:bg-[#C9A96E] hover:text-[#1a1a1a] transition-all duration-200"
+              className="inline-flex items-center justify-center px-8 sm:px-10 py-4 text-sm font-semibold tracking-widest uppercase border border-[#C9A96E] text-[#C9A96E] hover:bg-[#C9A96E] hover:text-[#1a1a1a] transition-all duration-200"
             >
               Оставить заявку
             </a>
