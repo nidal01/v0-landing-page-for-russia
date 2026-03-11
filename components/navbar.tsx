@@ -1,13 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Link from "next/link"
+import Image from "next/image"
 import { Menu, X } from "lucide-react"
 
 const navItems = [
   { label: "Коллекции", href: "#collections" },
   { label: "Преимущества", href: "#benefits" },
   { label: "О бренде", href: "#about" },
+  { label: "Отзывы", href: "#testimonials" },
   { label: "Контакты", href: "#contact" },
 ]
 
@@ -23,26 +24,22 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-brand-dark/95 backdrop-blur-sm shadow-lg" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? "bg-[#1a1a1a]/96 backdrop-blur-md shadow-xl" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex flex-col leading-none">
-          <span
-            className="text-2xl font-bold tracking-widest uppercase"
-            style={{ fontFamily: "Georgia, serif", color: "#C9A96E" }}
-          >
-            Romano
-          </span>
-          <span
-            className="text-lg tracking-[0.4em] uppercase"
-            style={{ fontFamily: "Georgia, serif", color: "rgba(255,255,255,0.85)" }}
-          >
-            Botta
-          </span>
-        </Link>
+        <a href="/" className="flex items-center">
+          <Image
+            src="/images/romano-botta-logo-nobg.webp"
+            alt="Romano Botta"
+            width={160}
+            height={56}
+            className="h-12 w-auto object-contain"
+            priority
+          />
+        </a>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
@@ -50,7 +47,7 @@ export function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm tracking-widest uppercase font-medium text-white/75 hover:text-[#C9A96E] transition-colors duration-200"
+              className="text-xs tracking-[0.2em] uppercase font-medium text-white/70 hover:text-[#C9A96E] transition-colors duration-200"
             >
               {item.label}
             </a>
@@ -77,14 +74,14 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-brand-dark border-t border-white/10">
+        <div className="md:hidden bg-[#1a1a1a] border-t border-white/10">
           <nav className="flex flex-col px-6 py-4 gap-4">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="text-sm tracking-widest uppercase text-white/75 hover:text-accent py-2 border-b border-white/10"
+                className="text-sm tracking-widest uppercase text-white/75 hover:text-[#C9A96E] py-2 border-b border-white/10 transition-colors"
               >
                 {item.label}
               </a>
@@ -92,7 +89,7 @@ export function Navbar() {
             <a
               href="#contact"
               onClick={() => setIsOpen(false)}
-              className="mt-2 px-5 py-3 text-xs tracking-widest uppercase font-semibold border border-accent text-accent text-center"
+              className="mt-2 px-5 py-3 text-xs tracking-widest uppercase font-semibold border border-[#C9A96E] text-[#C9A96E] text-center"
             >
               Стать партнёром
             </a>

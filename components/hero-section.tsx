@@ -5,49 +5,61 @@ const TELEGRAM_URL = "https://t.me/romanobotta"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-brand-dark">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#1a1a1a]">
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
           src="/images/hero-bg.jpg"
           alt="Romano Botta коллекция"
           fill
-          className="object-cover opacity-40"
+          className="object-cover opacity-35"
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/90 via-brand-dark/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a]/95 via-[#1a1a1a]/65 to-[#1a1a1a]/20" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-16 w-full">
         <div className="max-w-2xl">
+          {/* Logo mark */}
+          <div className="mb-8">
+            <Image
+              src="/images/romano-botta-logo-nobg.webp"
+              alt="Romano Botta"
+              width={220}
+              height={80}
+              className="h-16 w-auto object-contain brightness-0 invert"
+            />
+          </div>
+
           {/* Pre-heading */}
-          <p className="text-xs tracking-[0.4em] uppercase mb-6 font-medium" style={{ color: "#C9A96E" }}>
-            Итальянский бренд — Оптовая торговля
+          <p className="text-xs tracking-[0.45em] uppercase mb-5 font-medium text-[#C9A96E]">
+            Итальянский бренд · Оптовая торговля
           </p>
 
           {/* Heading */}
           <h1
-            className="text-5xl md:text-7xl font-light leading-tight mb-6 text-balance"
-            style={{ fontFamily: "Georgia, serif", color: "rgba(255,255,255,0.95)" }}
+            className="text-5xl md:text-7xl font-light leading-[1.08] mb-6 text-balance"
+            style={{ fontFamily: "Georgia, serif", color: "rgba(255,255,255,0.96)" }}
           >
-            Romano
+            Премиальная
             <br />
-            <span style={{ color: "#C9A96E" }}>Botta</span>
+            мужская одежда
+            <br />
+            <span style={{ color: "#C9A96E" }}>оптом</span>
           </h1>
 
-          <p className="text-lg md:text-xl leading-relaxed mb-4 font-light" style={{ color: "rgba(255,255,255,0.75)" }}>
-            Премиальная мужская одежда итальянского производства.
-            Рубашки, костюмы, поло и спортивные костюмы —
-            <strong className="font-semibold text-white"> оптом для России и тюркских республик.</strong>
+          <p className="text-lg md:text-xl leading-relaxed mb-3 font-light text-white/70">
+            Рубашки, костюмы, поло и спортивные костюмы итальянского производства.
+            <strong className="font-semibold text-white"> Поставки в Россию и тюркские республики.</strong>
           </p>
-          <p className="text-base leading-relaxed mb-10 font-light" style={{ color: "rgba(255,255,255,0.55)" }}>
-            Минимальный заказ — от 50 единиц. Доставка в любую точку СНГ.
+          <p className="text-sm leading-relaxed mb-10 text-white/45">
+            Минимальный заказ от 50 единиц · Доставка по всему СНГ · Полный пакет документов
           </p>
 
           {/* CTA buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 flex-wrap">
             <a
               href={WHATSAPP_URL}
               target="_blank"
@@ -75,18 +87,18 @@ export function HeroSection() {
           </div>
 
           {/* Trust bar */}
-          <div className="mt-14 flex flex-wrap gap-8">
+          <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-6">
             {[
               { value: "15+", label: "лет на рынке" },
-              { value: "2 000+", label: "моделей в каталоге" },
+              { value: "2 000+", label: "моделей" },
               { value: "40+", label: "стран поставки" },
-              { value: "500+", label: "партнёров по всему миру" },
+              { value: "500+", label: "партнёров" },
             ].map((stat) => (
               <div key={stat.label} className="flex flex-col">
-                <span className="text-3xl font-bold" style={{ color: "#C9A96E", fontFamily: "Georgia, serif" }}>
+                <span className="text-3xl font-bold text-[#C9A96E]" style={{ fontFamily: "Georgia, serif" }}>
                   {stat.value}
                 </span>
-                <span className="text-xs tracking-wider uppercase mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>
+                <span className="text-xs tracking-wider uppercase mt-1 text-white/45">
                   {stat.label}
                 </span>
               </div>
@@ -97,10 +109,8 @@ export function HeroSection() {
 
       {/* Scroll hint */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-        <div className="w-px h-12 animate-pulse" style={{ backgroundColor: "#C9A96E" }} />
-        <span className="text-xs tracking-widest uppercase" style={{ color: "#C9A96E" }}>
-          Листать
-        </span>
+        <div className="w-px h-10 bg-[#C9A96E] animate-pulse" />
+        <span className="text-xs tracking-[0.3em] uppercase text-[#C9A96E]">Листать</span>
       </div>
     </section>
   )

@@ -104,3 +104,19 @@
     scroll-behavior: smooth;
   }
 }
+
+@layer utilities {
+  .scale-108 {
+    --tw-scale-x: 1.08;
+    --tw-scale-y: 1.08;
+    transform: scaleX(1.08) scaleY(1.08);
+  }
+  .group-hover\:scale-108 {
+    transition-property: transform;
+  }
+  .group:hover .group-hover\:scale-108 {
+    --tw-scale-x: 1.08;
+    --tw-scale-y: 1.08;
+    transform: scaleX(1.08) scaleY(1.08);
+  }
+}

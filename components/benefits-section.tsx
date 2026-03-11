@@ -1,41 +1,42 @@
 import { CheckCircle, Globe, Package, TrendingUp, Shield, Clock } from "lucide-react"
+import { Reveal } from "./scroll-reveal"
 
 const benefits = [
   {
-    icon: <Package size={28} />,
+    icon: <Package size={26} />,
     title: "Широкий ассортимент",
     description:
-      "Более 2 000 моделей в каталоге: рубашки, костюмы, поло, спортивные костюмы. Обновление коллекций каждый сезон.",
+      "Более 2 000 моделей: рубашки, костюмы, поло, спортивные костюмы. Обновление каждый сезон.",
   },
   {
-    icon: <Globe size={28} />,
+    icon: <Globe size={26} />,
     title: "Поставки в СНГ",
     description:
-      "Отработанная логистика доставки в Россию, Азербайджан, Казахстан, Узбекистан, Туркменистан и другие страны.",
+      "Отработанная логистика в Россию, Азербайджан, Казахстан, Узбекистан, Туркменистан и другие страны.",
   },
   {
-    icon: <TrendingUp size={28} />,
+    icon: <TrendingUp size={26} />,
     title: "Выгодные оптовые цены",
     description:
       "Прозрачное ценообразование без скрытых комиссий. Индивидуальные условия для крупных партнёров.",
   },
   {
-    icon: <Shield size={28} />,
+    icon: <Shield size={26} />,
     title: "Итальянское качество",
     description:
       "Производство строго контролируется на каждом этапе. Сертификаты качества и гарантия на каждую партию.",
   },
   {
-    icon: <CheckCircle size={28} />,
+    icon: <CheckCircle size={26} />,
     title: "Документация и сертификаты",
     description:
-      "Полный пакет документов: инвойсы, сертификаты соответствия, таможенное оформление — всё включено.",
+      "Полный пакет: инвойсы, сертификаты соответствия, таможенное оформление — всё включено.",
   },
   {
-    icon: <Clock size={28} />,
+    icon: <Clock size={26} />,
     title: "Быстрая обработка заказов",
     description:
-      "Заявка рассматривается в течение 24 часов. Товары в наличии отправляются в течение 3–5 рабочих дней.",
+      "Заявка рассматривается в течение 24 часов. Товары в наличии отправляются за 3–5 рабочих дней.",
   },
 ]
 
@@ -44,68 +45,73 @@ export function BenefitsSection() {
     <section id="benefits" className="py-24 bg-secondary">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="max-w-2xl mb-16">
-          <p className="text-xs tracking-[0.4em] uppercase mb-3 font-medium text-accent">
-            Почему Romano Botta
-          </p>
-          <h2
-            className="text-4xl md:text-5xl font-light mb-4 text-balance"
-            style={{ fontFamily: "Georgia, serif" }}
-          >
-            Ваш надёжный партнёр
-            <br />в оптовой торговле
-          </h2>
-          <p className="text-muted-foreground leading-relaxed">
-            Мы поставляем премиальную мужскую одежду оптом в Россию и страны СНГ уже более 15 лет.
-            Доверие сотен дистрибьюторов — наша лучшая рекомендация.
-          </p>
-        </div>
+        <Reveal>
+          <div className="max-w-2xl mb-16">
+            <p className="text-xs tracking-[0.4em] uppercase mb-3 font-medium text-[#C9A96E]">
+              Почему Romano Botta
+            </p>
+            <h2
+              className="text-4xl md:text-5xl font-light mb-4 text-balance"
+              style={{ fontFamily: "Georgia, serif" }}
+            >
+              Ваш надёжный партнёр
+              <br />в оптовой торговле
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Мы поставляем премиальную мужскую одежду оптом в Россию и страны СНГ уже более 15 лет.
+              Доверие сотен дистрибьюторов — наша лучшая рекомендация.
+            </p>
+          </div>
+        </Reveal>
 
         {/* Benefits grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {benefits.map((benefit) => (
-            <div
-              key={benefit.title}
-              className="flex flex-col gap-4 p-8 bg-background border border-border hover:border-accent transition-colors duration-300"
-            >
-              <div className="text-accent">{benefit.icon}</div>
-              <h3 className="text-lg font-semibold tracking-wide">{benefit.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {benefits.map((benefit, i) => (
+            <Reveal key={benefit.title} delay={i * 70} direction="up">
+              <div className="flex flex-col gap-4 p-8 bg-background border border-border hover:border-[#C9A96E] hover:shadow-md transition-all duration-300 group h-full">
+                <div className="text-[#C9A96E] group-hover:scale-110 transition-transform duration-200 w-fit">
+                  {benefit.icon}
+                </div>
+                <h3 className="text-base font-semibold tracking-wide">{benefit.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
 
         {/* Mid-page CTA strip */}
-        <div className="mt-16 p-8 md:p-12 bg-brand-dark flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <h3 className="text-2xl font-light text-white mb-2" style={{ fontFamily: "Georgia, serif" }}>
-              Готовы начать сотрудничество?
-            </h3>
-            <p className="text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>
-              Свяжитесь с нами прямо сейчас — ответим в течение нескольких минут.
-            </p>
+        <Reveal delay={100}>
+          <div className="mt-16 p-8 md:p-12 bg-[#1a1a1a] flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <h3 className="text-2xl font-light text-white mb-2" style={{ fontFamily: "Georgia, serif" }}>
+                Готовы начать сотрудничество?
+              </h3>
+              <p className="text-sm text-white/55">
+                Свяжитесь с нами прямо сейчас — ответим в течение нескольких минут.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+              <a
+                href="https://wa.me/905XXXXXXXXX?text=Здравствуйте!%20Хочу%20узнать%20об%20оптовых%20условиях%20Romano%20Botta."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-semibold tracking-widest uppercase text-white bg-[#25D366] hover:bg-[#1ebe5d] transition-colors duration-200"
+              >
+                <WhatsAppIcon />
+                WhatsApp
+              </a>
+              <a
+                href="https://t.me/romanobotta"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-semibold tracking-widest uppercase text-white bg-[#229ED9] hover:bg-[#1a8fc4] transition-colors duration-200"
+              >
+                <TelegramIcon />
+                Telegram
+              </a>
+            </div>
           </div>
-          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-            <a
-              href="https://wa.me/905XXXXXXXXX?text=Здравствуйте!%20Хочу%20узнать%20об%20оптовых%20условиях%20Romano%20Botta."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-semibold tracking-widest uppercase text-white bg-[#25D366] hover:bg-[#1ebe5d] transition-colors duration-200"
-            >
-              <WhatsAppIcon />
-              WhatsApp
-            </a>
-            <a
-              href="https://t.me/romanobotta"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-semibold tracking-widest uppercase text-white bg-[#229ED9] hover:bg-[#1a8fc4] transition-colors duration-200"
-            >
-              <TelegramIcon />
-              Telegram
-            </a>
-          </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )
