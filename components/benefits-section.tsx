@@ -90,10 +90,7 @@ export function BenefitsSection() {
               href="https://wa.me/905XXXXXXXXX?text=Здравствуйте!%20Хочу%20узнать%20об%20оптовых%20условиях%20Romano%20Botta."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-semibold tracking-widest uppercase text-white transition-all duration-200"
-              style={{ backgroundColor: "#25D366" }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1ebe5d")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#25D366")}
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-semibold tracking-widest uppercase text-white bg-[#25D366] hover:bg-[#1ebe5d] transition-colors duration-200"
             >
               <WhatsAppIcon />
               WhatsApp
@@ -102,10 +99,7 @@ export function BenefitsSection() {
               href="https://t.me/romanobotta"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-semibold tracking-widest uppercase text-white transition-all duration-200"
-              style={{ backgroundColor: "#229ED9" }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1a8fc4")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#229ED9")}
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-semibold tracking-widest uppercase text-white bg-[#229ED9] hover:bg-[#1a8fc4] transition-colors duration-200"
             >
               <TelegramIcon />
               Telegram

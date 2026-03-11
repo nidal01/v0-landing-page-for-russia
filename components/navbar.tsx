@@ -50,10 +50,7 @@ export function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm tracking-widest uppercase font-medium transition-colors duration-200"
-              style={{ color: "rgba(255,255,255,0.75)" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#C9A96E")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}
+              className="text-sm tracking-widest uppercase font-medium text-white/75 hover:text-[#C9A96E] transition-colors duration-200"
             >
               {item.label}
             </a>
@@ -63,16 +60,7 @@ export function Navbar() {
         {/* CTA */}
         <a
           href="#contact"
-          className="hidden md:inline-flex items-center px-5 py-2.5 text-xs tracking-widest uppercase font-semibold border transition-all duration-200"
-          style={{ borderColor: "#C9A96E", color: "#C9A96E" }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "#C9A96E"
-            e.currentTarget.style.color = "#1a1a1a"
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "transparent"
-            e.currentTarget.style.color = "#C9A96E"
-          }}
+          className="hidden md:inline-flex items-center px-5 py-2.5 text-xs tracking-widest uppercase font-semibold border border-[#C9A96E] text-[#C9A96E] hover:bg-[#C9A96E] hover:text-[#1a1a1a] transition-all duration-200"
         >
           Стать партнёром
         </a>

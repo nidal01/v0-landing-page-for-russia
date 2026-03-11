@@ -88,16 +88,7 @@ export function TestimonialsSection() {
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center justify-center px-10 py-4 text-sm font-semibold tracking-widest uppercase border transition-all duration-200"
-            style={{ borderColor: "#C9A96E", color: "#C9A96E" }}
-            onMouseEnter={(e) => {
-              ;(e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#C9A96E"
-              ;(e.currentTarget as HTMLAnchorElement).style.color = "#1a1a1a"
-            }}
-            onMouseLeave={(e) => {
-              ;(e.currentTarget as HTMLAnchorElement).style.backgroundColor = "transparent"
-              ;(e.currentTarget as HTMLAnchorElement).style.color = "#C9A96E"
-            }}
+            className="inline-flex items-center justify-center px-10 py-4 text-sm font-semibold tracking-widest uppercase border border-[#C9A96E] text-[#C9A96E] hover:bg-[#C9A96E] hover:text-[#1a1a1a] transition-all duration-200"
           >
             Оставить заявку
           </a>

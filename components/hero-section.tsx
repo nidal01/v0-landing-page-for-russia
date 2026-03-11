@@ -52,10 +52,7 @@ export function HeroSection() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-semibold tracking-widest uppercase transition-all duration-200"
-              style={{ backgroundColor: "#25D366", color: "#fff" }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1ebe5d")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#25D366")}
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-semibold tracking-widest uppercase bg-[#25D366] hover:bg-[#1ebe5d] text-white transition-colors duration-200"
             >
               <WhatsAppIcon />
               WhatsApp
@@ -64,26 +61,14 @@ export function HeroSection() {
               href={TELEGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-semibold tracking-widest uppercase transition-all duration-200"
-              style={{ backgroundColor: "#229ED9", color: "#fff" }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1a8fc4")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#229ED9")}
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-semibold tracking-widest uppercase bg-[#229ED9] hover:bg-[#1a8fc4] text-white transition-colors duration-200"
             >
               <TelegramIcon />
               Telegram
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold tracking-widest uppercase border transition-all duration-200"
-              style={{ borderColor: "#C9A96E", color: "#C9A96E" }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#C9A96E"
-                e.currentTarget.style.color = "#1a1a1a"
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "transparent"
-                e.currentTarget.style.color = "#C9A96E"
-              }}
+              className="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold tracking-widest uppercase border border-[#C9A96E] text-[#C9A96E] hover:bg-[#C9A96E] hover:text-[#1a1a1a] transition-all duration-200"
             >
               Запросить каталог
             </a>
