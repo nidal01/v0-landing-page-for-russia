@@ -9,7 +9,7 @@ export function HeroSection() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-bg.jpg"
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Showroom_amat%C3%B6r%C3%A7ekim_2-ZoaOt58xsZHFXzoBFXOnAFDqaXy8YK.jpg"
           alt="Romano Botta коллекция"
           fill
           className="object-cover opacity-35"
