@@ -19,6 +19,17 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a]/95 via-[#1a1a1a]/65 to-[#1a1a1a]/20" />
       </div>
 
+      {/* Watermark / Filigran */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+        <Image
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-03-24%20at%201.25.40%20PM-lokwIr95ze8psjYoAtllT6Q6hHS7UD.jpeg"
+          alt=""
+          width={800}
+          height={800}
+          className="opacity-[0.03] w-[600px] sm:w-[800px] md:w-[1000px] h-auto"
+        />
+      </div>
+
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-16 w-full">
         <div className="max-w-2xl">

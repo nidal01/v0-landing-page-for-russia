@@ -10,8 +10,19 @@ const milestones = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-16 sm:py-24 bg-background overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section id="about" className="relative py-16 sm:py-24 bg-background overflow-hidden">
+      {/* Watermark / Filigran */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+        <Image
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-03-24%20at%201.25.40%20PM-lokwIr95ze8psjYoAtllT6Q6hHS7UD.jpeg"
+          alt=""
+          width={800}
+          height={800}
+          className="opacity-[0.04] w-[500px] sm:w-[700px] md:w-[900px] h-auto"
+        />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         {/* Top: image + text */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 items-center mb-16 sm:mb-20">
           {/* Image block */}
