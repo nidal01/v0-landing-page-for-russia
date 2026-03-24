@@ -117,13 +117,19 @@ export function CollectionsSection() {
                   <p className="text-sm text-white/75 leading-relaxed max-w-sm block md:hidden">
                     {item.description}
                   </p>
-                  <p className="hidden md:block text-sm text-white/70 leading-relaxed max-w-sm">
+                  <p
+                    className="hidden md:block text-sm text-white/70 leading-relaxed max-w-sm transition-all duration-400 overflow-hidden"
+                    style={{
+                      maxHeight: activeId === item.id ? "80px" : "0px",
+                      opacity: activeId === item.id ? 1 : 0,
+                    }}
+                  >
                     {item.description}
                   </p>
-                  {/* CTA: always visible on mobile */}
+                  {/* CTA: always visible on mobile, hover on desktop */}
                   <a
                     href="#contact"
-                    className="mt-3 inline-flex items-center gap-2 text-xs tracking-widest uppercase font-semibold text-[#C9A96E] transition-all duration-300"
+                    className="mt-3 inline-flex items-center gap-2 text-xs tracking-widest uppercase font-semibold text-[#C9A96E] md:opacity-0 md:translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300"
                   >
                     Запросить прайс
                     <span aria-hidden="true">→</span>
