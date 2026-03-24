@@ -11,14 +11,14 @@ const milestones = [
 export function AboutSection() {
   return (
     <section id="about" className="relative py-16 sm:py-24 bg-background overflow-hidden">
-      {/* Watermark / Filigran */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+      {/* Watermark / Filigran - Sol tarafta gorunur */}
+      <div className="absolute left-[-15%] md:left-[-5%] top-1/3 pointer-events-none">
         <Image
           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-03-24%20at%201.25.40%20PM-lokwIr95ze8psjYoAtllT6Q6hHS7UD.jpeg"
           alt=""
-          width={800}
-          height={800}
-          className="opacity-[0.04] w-[500px] sm:w-[700px] md:w-[900px] h-auto"
+          width={600}
+          height={600}
+          className="opacity-[0.06] w-[350px] sm:w-[450px] md:w-[550px] h-auto"
         />
       </div>
 
