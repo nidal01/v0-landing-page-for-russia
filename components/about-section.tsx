@@ -10,8 +10,19 @@ const milestones = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-16 sm:py-24 bg-background overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section id="about" className="relative py-16 sm:py-24 bg-background overflow-hidden">
+      {/* Watermark / Filigran - Sol tarafta gorunur */}
+      <div className="absolute left-[-15%] md:left-[-5%] top-1/3 pointer-events-none">
+        <Image
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-03-24%20at%201.25.40%20PM-lokwIr95ze8psjYoAtllT6Q6hHS7UD.jpeg"
+          alt=""
+          width={600}
+          height={600}
+          className="opacity-[0.06] w-[350px] sm:w-[450px] md:w-[550px] h-auto"
+        />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         {/* Top: image + text */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 items-center mb-16 sm:mb-20">
           {/* Image block */}
@@ -19,7 +30,7 @@ export function AboutSection() {
             <div className="relative">
               <div className="relative h-72 sm:h-[420px] md:h-[520px] overflow-hidden">
                 <Image
-                  src="/images/wholesale-warehouse.jpg"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Showroom_amat%C3%B6r%C3%A7ekim_3-J0dqLrvacTt5nQJP6SAMabKdF6rbIO.jpg"
                   alt="Romano Botta склад и производство"
                   fill
                   className="object-cover"
@@ -129,9 +140,9 @@ export function AboutSection() {
         <Reveal delay={100}>
           <div className="mt-12 sm:mt-16 grid grid-cols-3 gap-2 sm:gap-3">
             {[
-              { src: "/images/shirts-collection.jpg", alt: "Коллекция рубашек" },
-              { src: "/images/suits-collection.jpg", alt: "Коллекция костюмов" },
-              { src: "/images/polo-collection.jpg", alt: "Поло и футболки" },
+              { src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/KP-02-196_03_detay-2lG8WJutiyAHT8Dg5nbxoUOvBnJQhy.jpg", alt: "Коллекция рубашек" },
+              { src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Takim%20Elbise-Ceket%202-wQzfCY4nJNDvQCCDHnivw8GcPo6bnb.jpg", alt: "Коллекция костюмов" },
+              { src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ROMANO_BOTTA_0267-COvhHHirItsIMw4ADYQkNazszK23fc.jpg", alt: "Поло и футболки" },
             ].map(({ src, alt }) => (
               <div key={src} className="relative h-32 sm:h-48 md:h-64 overflow-hidden group">
                 <Image

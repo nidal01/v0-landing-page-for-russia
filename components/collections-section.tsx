@@ -11,7 +11,7 @@ const collections = [
     subtitle: "Классика итальянского кроя",
     description:
       "Хлопковые и шёлковые рубашки в широкой цветовой гамме. Премиальный материал, идеальная посадка. Более 300 моделей.",
-    image: "/images/shirts-collection.jpg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gomlek%202-Sp9e1yxLGxYKMp83FQYQNlQUQqd88p.jpg",
     tag: "Бестселлер",
     count: "300+ моделей",
   },
@@ -21,7 +21,7 @@ const collections = [
     subtitle: "Итальянский силуэт",
     description:
       "Двубортные и однобортные костюмы из высококачественных тканей. Уверенность в каждом движении.",
-    image: "/images/suits-collection.jpg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Takim%20Elbise-Ceket%202-wQzfCY4nJNDvQCCDHnivw8GcPo6bnb.jpg",
     tag: "Новинки",
     count: "150+ моделей",
   },
@@ -31,7 +31,7 @@ const collections = [
     subtitle: "Элегантная повседневность",
     description:
       "Polo shirts из пике-хлопка, лаконичный дизайн, разнообразие цветов — для любого сезона.",
-    image: "/images/polo-collection.jpg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ROMANO_BOTTA_0267-COvhHHirItsIMw4ADYQkNazszK23fc.jpg",
     tag: "",
     count: "200+ моделей",
   },
@@ -41,7 +41,7 @@ const collections = [
     subtitle: "Luxury sportswear",
     description:
       "Стильные спортивные костюмы Romano Botta. Комфорт люкс-класса для активного образа жизни.",
-    image: "/images/tracksuit-collection.jpg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/deriD-BBRQzYWOduQ50LI0v98mHh1HgjANAz.jpg",
     tag: "",
     count: "80+ моделей",
   },
@@ -126,7 +126,7 @@ export function CollectionsSection() {
                   >
                     {item.description}
                   </p>
-                  {/* CTA: always visible on mobile */}
+                  {/* CTA: always visible on mobile, hover on desktop */}
                   <a
                     href="#contact"
                     className="mt-3 inline-flex items-center gap-2 text-xs tracking-widest uppercase font-semibold text-[#C9A96E] md:opacity-0 md:translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300"
