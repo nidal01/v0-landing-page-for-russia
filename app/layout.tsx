@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   keywords:
     'Romano Botta, оптовая одежда, мужские рубашки, итальянская одежда, оптовая торговля, Россия, СНГ, тюркские республики, Азербайджан, Казахстан',
   icons: {
-    icon: '/icon.png',
-    apple: '/icon.png',
+    icon: '/favicon.jpg',
+    apple: '/favicon.jpg',
   },
 }
 
