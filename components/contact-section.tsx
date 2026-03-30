@@ -3,8 +3,8 @@
 import { useState } from "react"
 import { Send, CheckCircle } from "lucide-react"
 
-const WHATSAPP_URL = "https://wa.me/905XXXXXXXXX?text=Здравствуйте!%20Хочу%20узнать%20об%20оптовых%20условиях%20Romano%20Botta."
-const TELEGRAM_URL = "https://t.me/romanobotta"
+const WHATSAPP_URL = "https://wa.me/905513574341?text=Здравствуйте!%20Я%20хочу%20узнать%20об%20оптовых%20условиях%20Romano%20Botta."
+const TELEGRAM_URL = "https://t.me/+905513574341"
 
 export function ContactSection() {
   const [form, setForm] = useState({
@@ -102,7 +102,7 @@ export function ContactSection() {
               </a>
 
               <a
-                href="mailto:wholesale@romanobotta.com"
+                href="mailto:info@romanobotta.com"
                 className="flex items-center gap-4 p-5 border border-border bg-background hover:border-accent transition-all duration-200 group"
               >
                 <div
@@ -113,7 +113,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <div className="font-semibold text-sm tracking-wide group-hover:text-accent transition-colors">
-                    wholesale@romanobotta.com
+                    info@romanobotta.com
                   </div>
                   <div className="text-xs text-muted-foreground mt-0.5">
                     Для официальных запросов и прайс-листа

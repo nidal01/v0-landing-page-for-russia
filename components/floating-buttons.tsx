@@ -1,8 +1,7 @@
 "use client"
 
-const WHATSAPP_URL =
-  "https://wa.me/905XXXXXXXXX?text=Здравствуйте!%20Хочу%20узнать%20об%20оптовых%20условиях%20Romano%20Botta."
-const TELEGRAM_URL = "https://t.me/romanobotta"
+const WHATSAPP_URL = "https://wa.me/905513574341?text=Здравствуйте!%20Я%20хочу%20узнать%20об%20оптовых%20условиях%20Romano%20Botta."
+const TELEGRAM_URL = "https://t.me/+905513574341"
 
 function WhatsAppIcon() {
   return (

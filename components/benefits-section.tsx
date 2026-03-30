@@ -92,7 +92,7 @@ export function BenefitsSection() {
             </div>
             <div className="flex flex-col xs:flex-row gap-3 shrink-0 w-full md:w-auto">
               <a
-                href="https://wa.me/905XXXXXXXXX?text=Здравствуйте!%20Хочу%20узнать%20об%20оптовых%20условиях%20Romano%20Botta."
+                href="https://wa.me/905513574341?text=Здравствуйте!%20Я%20хочу%20узнать%20об%20оптовых%20условиях%20Romano%20Botta."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-semibold tracking-widest uppercase text-white bg-[#25D366] hover:bg-[#1ebe5d] transition-colors duration-200"
@@ -101,7 +101,7 @@ export function BenefitsSection() {
                 WhatsApp
               </a>
               <a
-                href="https://t.me/romanobotta"
+                href="https://t.me/+905513574341"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-semibold tracking-widest uppercase text-white bg-[#229ED9] hover:bg-[#1a8fc4] transition-colors duration-200"
