@@ -14,11 +14,14 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // SMTP_USER veya SMTP_FROM kullanılabilir
+    const smtpUser = process.env.SMTP_USER || process.env.SMTP_FROM
+
     // Check if SMTP is configured
-    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
+    if (!process.env.SMTP_HOST || !smtpUser || !process.env.SMTP_PASSWORD) {
       console.error("[v0] SMTP not configured:", {
         host: !!process.env.SMTP_HOST,
-        user: !!process.env.SMTP_USER,
+        user: !!smtpUser,
         pass: !!process.env.SMTP_PASSWORD,
       })
       return NextResponse.json(
@@ -33,7 +36,7 @@ export async function POST(request: NextRequest) {
       port: Number(process.env.SMTP_PORT) || 587,
       secure: process.env.SMTP_SECURE === "true", // true for 465, false for other ports
       auth: {
-        user: process.env.SMTP_USER,
+        user: smtpUser,
         pass: process.env.SMTP_PASSWORD,
       },
     })
