@@ -44,7 +44,7 @@ export function AboutSection() {
               />
               {/* Floating stat card */}
               <div className="absolute bottom-4 sm:-bottom-6 left-4 sm:left-8 bg-[#1a1a1a] p-4 sm:p-5 shadow-xl">
-                <p className="text-2xl sm:text-3xl font-bold text-[#C9A96E]" style={{ fontFamily: "Georgia, serif" }}>15+</p>
+                <p className="text-2xl sm:text-3xl font-bold text-[#C9A96E]" style={{ fontFamily: "Georgia, serif" }}>40+</p>
                 <p className="text-xs tracking-widest uppercase text-white/60 mt-1">лет на рынке</p>
               </div>
             </div>
@@ -78,7 +78,8 @@ export function AboutSection() {
               {/* Values */}
               <div className="grid grid-cols-1 xs:grid-cols-2 gap-2.5 mt-1">
                 {[
-                  "Итальянское производство",
+                  "Турецкое производство ",
+                  "Итальянские ткани",
                   "Контроль качества 360°",
                   "Сезонные обновления",
                   "Персональный менеджер",
