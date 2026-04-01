@@ -38,7 +38,21 @@ export function ContactSection() {
         body: JSON.stringify(form),
       })
 
-      const data = await response.json()
+      // Önce response text olarak al
+      const text = await response.text()
+      
+      // Boş response kontrolü
+      if (!text) {
+        throw new Error("Сервер не вернул ответ. Проверьте настройки PHP.")
+      }
+
+      // JSON parse et
+      let data
+      try {
+        data = JSON.parse(text)
+      } catch {
+        throw new Error(`Ошибка сервера: ${text.substring(0, 100)}`)
+      }
 
       if (!response.ok) {
         throw new Error(data.error || "Что-то пошло не так")

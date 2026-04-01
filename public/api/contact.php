@@ -1,9 +1,28 @@
 <?php
+// Error reporting - geliştirme için açık, production'da kapatın
+error_reporting(E_ALL);
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
+
 // CORS headers
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 header('Content-Type: application/json; charset=utf-8');
+
+// Custom error handler
+set_error_handler(function($errno, $errstr, $errfile, $errline) {
+    http_response_code(500);
+    echo json_encode(['error' => "PHP Error: $errstr"]);
+    exit();
+});
+
+// Exception handler
+set_exception_handler(function($exception) {
+    http_response_code(500);
+    echo json_encode(['error' => "Exception: " . $exception->getMessage()]);
+    exit();
+});
 
 // Handle preflight request
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
