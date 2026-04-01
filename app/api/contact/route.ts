@@ -14,6 +14,19 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Check if SMTP is configured
+    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
+      console.error("[v0] SMTP not configured:", {
+        host: !!process.env.SMTP_HOST,
+        user: !!process.env.SMTP_USER,
+        pass: !!process.env.SMTP_PASSWORD,
+      })
+      return NextResponse.json(
+        { error: "SMTP ayarları yapılandırılmamış. Lütfen environment variables kontrol edin." },
+        { status: 500 }
+      )
+    }
+
     // Create transporter with SMTP settings
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -105,9 +118,10 @@ ${message ? `Сообщение: ${message}` : ''}
 
     return NextResponse.json({ success: true, message: "Заявка успешно отправлена" })
   } catch (error) {
-    console.error("Error sending email:", error)
+    console.error("[v0] Error sending email:", error)
+    const errorMessage = error instanceof Error ? error.message : "Bilinmeyen hata"
     return NextResponse.json(
-      { error: "Не удалось отправить заявку. Попробуйте позже." },
+      { error: `E-posta gönderilemedi: ${errorMessage}` },
       { status: 500 }
     )
   }
