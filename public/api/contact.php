@@ -137,26 +137,7 @@ $email_body = "
 </html>
 ";
 
-// Use PHPMailer if available, otherwise use mail()
-// First, try to use PHP's built-in mail with proper headers for SMTP
-
-// For cPanel with proper SMTP, we'll use fsockopen method
-function smtp_mail($to, $subject, $body, $from_email, $from_name, $host, $port, $user, $pass) {
-    $headers = "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-    $headers .= "From: $from_name <$from_email>\r\n";
-    $headers .= "Reply-To: $from_email\r\n";
-    $headers .= "X-Mailer: PHP/" . phpversion();
-    
-    // Try using mail() function first (works if server is configured)
-    if (mail($to, $subject, $body, $headers)) {
-        return true;
-    }
-    
-    return false;
-}
-
-// Alternative: Direct SMTP connection
+// Direct SMTP connection function
 function send_smtp_mail($to, $subject, $body, $from_email, $from_name, $host, $port, $user, $pass) {
     $errno = 0;
     $errstr = '';
@@ -257,7 +238,7 @@ function send_smtp_mail($to, $subject, $body, $from_email, $from_name, $host, $p
     return ['success' => true];
 }
 
-// Try to send email
+// Try to send email via direct SMTP
 $result = send_smtp_mail(
     $smtp_to,
     $subject,
@@ -276,21 +257,9 @@ if ($result['success']) {
         'message' => 'Заявка успешно отправлена!'
     ]);
 } else {
-    // Fallback to PHP mail()
-    $headers = "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-    $headers .= "From: $smtp_from_name <$smtp_from>\r\n";
-    
-    if (mail($smtp_to, $subject, $email_body, $headers)) {
-        echo json_encode([
-            'success' => true,
-            'message' => 'Заявка успешно отправлена!'
-        ]);
-    } else {
-        http_response_code(500);
-        echo json_encode([
-            'error' => 'Не удалось отправить письмо: ' . ($result['error'] ?? 'Unknown error')
-        ]);
-    }
+    http_response_code(500);
+    echo json_encode([
+        'error' => 'Не удалось отправить письмо: ' . ($result['error'] ?? 'Unknown error')
+    ]);
 }
 ?>
