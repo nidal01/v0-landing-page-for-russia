@@ -171,25 +171,41 @@ function send_smtp_mail($to, $subject, $body, $from_email, $from_name, $host, $p
     }
     
     // EHLO
-    fputs($socket, "EHLO $host\r\n");
+    fputs($socket, "EHLO localhost\r\n");
     $response = '';
     while ($line = fgets($socket, 515)) {
         $response .= $line;
         if (substr($line, 3, 1) == ' ') break;
     }
     
+    // Check if AUTH is supported
+    if (strpos($response, 'AUTH') === false) {
+        fclose($socket);
+        return ['success' => false, 'error' => "Server does not support AUTH"];
+    }
+    
     // AUTH LOGIN
     fputs($socket, "AUTH LOGIN\r\n");
-    fgets($socket, 515);
+    $response = fgets($socket, 515);
+    if (substr($response, 0, 3) != '334') {
+        fclose($socket);
+        return ['success' => false, 'error' => "AUTH LOGIN failed: $response"];
+    }
     
+    // Send username
     fputs($socket, base64_encode($user) . "\r\n");
-    fgets($socket, 515);
+    $response = fgets($socket, 515);
+    if (substr($response, 0, 3) != '334') {
+        fclose($socket);
+        return ['success' => false, 'error' => "Username failed: $response"];
+    }
     
+    // Send password
     fputs($socket, base64_encode($pass) . "\r\n");
     $response = fgets($socket, 515);
     if (substr($response, 0, 3) != '235') {
         fclose($socket);
-        return ['success' => false, 'error' => "Authentication failed: $response"];
+        return ['success' => false, 'error' => "Password failed: $response"];
     }
     
     // MAIL FROM
