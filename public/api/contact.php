@@ -181,7 +181,7 @@ function send_smtp_mail($to, $subject, $body, $from_email, $from_name, $host, $p
     // Check if AUTH is supported
     if (strpos($response, 'AUTH') === false) {
         fclose($socket);
-        return ['success' => false, 'error' => "Server does not support AUTH"];
+        return ['success' => false, 'error' => "EHLO Response: " . str_replace(["\r", "\n"], " | ", trim($response))];
     }
     
     // AUTH LOGIN
