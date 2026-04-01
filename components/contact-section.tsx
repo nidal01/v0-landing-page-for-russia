@@ -3,8 +3,8 @@
 import { useState } from "react"
 import { Send, CheckCircle } from "lucide-react"
 
-const WHATSAPP_URL = "https://wa.me/905513574341?text=Здравствуйте!%20Я%20хочу%20узнать%20об%20оптовых%20условиях%20Romano%20Botta."
-const TELEGRAM_URL = "https://t.me/+905513574341"
+const WHATSAPP_URL = "https://wa.me/905050666305?text=Здравствуйте!%20Я%20хочу%20узнать%20об%20оптовых%20условиях%20Romano%20Botta."
+const TELEGRAM_URL = "https://t.me/+905050666305"
 
 export function ContactSection() {
   const [form, setForm] = useState({
@@ -17,6 +17,7 @@ export function ContactSection() {
   })
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -25,10 +26,29 @@ export function ContactSection() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setLoading(true)
-    // Simulate submission
-    await new Promise((r) => setTimeout(r, 1200))
-    setLoading(false)
-    setSubmitted(true)
+    setError(null)
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || "Что-то пошло не так")
+      }
+
+      setSubmitted(true)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Не удалось отправить заявку")
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -288,6 +308,12 @@ export function ContactSection() {
                     </>
                   )}
                 </button>
+
+                {error && (
+                  <p className="text-sm text-red-500 bg-red-50 dark:bg-red-950/30 p-3 border border-red-200 dark:border-red-900">
+                    {error}
+                  </p>
+                )}
 
                 <p className="text-xs text-muted-foreground">
                   Нажимая «Отправить», вы соглашаетесь с обработкой персональных данных.
