@@ -2,15 +2,9 @@
 
 import { useState } from "react"
 import { Send, CheckCircle } from "lucide-react"
-import emailjs from "@emailjs/browser"
 
 const WHATSAPP_URL = "https://wa.me/905050666305?text=Здравствуйте!%20Я%20хочу%20узнать%20об%20оптовых%20условиях%20Romano%20Botta."
 const TELEGRAM_URL = "https://t.me/+905050666305"
-
-// EmailJS Configuration - Bu değerleri kendi hesabınızdan alın
-const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || ""
-const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || ""
-const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
 
 export function ContactSection() {
   const [form, setForm] = useState({
@@ -35,25 +29,25 @@ export function ContactSection() {
     setError(null)
 
     try {
-      // EmailJS ile gönder
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          company: form.company,
-          country: form.country,
-          phone: form.phone,
-          email: form.email,
-          message: form.message || "Сообщение не указано",
+      // PHP backend ile SMTP gönderimi
+      const response = await fetch("/api/contact.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        EMAILJS_PUBLIC_KEY
-      )
+        body: JSON.stringify(form),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || "Что-то пошло не так")
+      }
 
       setSubmitted(true)
     } catch (err) {
-      console.error("EmailJS error:", err)
-      setError("Не удалось отправить заявку. Попробуйте позже.")
+      console.error("Form error:", err)
+      setError(err instanceof Error ? err.message : "Не удалось отправить заявку. Попробуйте позже.")
     } finally {
       setLoading(false)
     }
