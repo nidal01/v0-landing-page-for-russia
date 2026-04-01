@@ -89,7 +89,7 @@ export function HeroSection() {
           {/* Trust bar */}
           <div className="mt-10 sm:mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
             {[
-              { value: "40+", label: "лет на рынке" },
+              { value: "70+", label: "лет на рынке" },
               { value: "2 000+", label: "моделей" },
               { value: "40+", label: "стран поставки" },
               { value: "500+", label: "партнёров" },
