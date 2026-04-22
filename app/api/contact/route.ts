@@ -1,6 +1,16 @@
 import { NextRequest, NextResponse } from "next/server"
 import nodemailer from "nodemailer"
 
+function getRecipientEmail() {
+  // Support multiple common env names to avoid deploy-time confusion.
+  return (
+    process.env.SMTP_TO ||
+    process.env.CONTACT_EMAIL ||
+    process.env.MAIL_TO ||
+    process.env.FORM_RECEIVER_EMAIL
+  )
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
@@ -18,14 +28,17 @@ export async function POST(request: NextRequest) {
     const smtpUser = process.env.SMTP_USER || process.env.SMTP_FROM
 
     // Check if SMTP is configured
-    if (!process.env.SMTP_HOST || !smtpUser || !process.env.SMTP_PASSWORD) {
+    const recipientEmail = getRecipientEmail()
+
+    if (!process.env.SMTP_HOST || !smtpUser || !process.env.SMTP_PASSWORD || !recipientEmail) {
       console.error("[v0] SMTP not configured:", {
         host: !!process.env.SMTP_HOST,
         user: !!smtpUser,
         pass: !!process.env.SMTP_PASSWORD,
+        recipient: !!recipientEmail,
       })
       return NextResponse.json(
-        { error: "SMTP ayarları yapılandırılmamış. Lütfen environment variables kontrol edin." },
+        { error: "SMTP ayarları eksik. SMTP_HOST, SMTP_USER/SMTP_FROM, SMTP_PASSWORD ve alıcı mail (SMTP_TO/CONTACT_EMAIL/MAIL_TO/FORM_RECEIVER_EMAIL) tanımlı olmalı." },
         { status: 500 }
       )
     }
@@ -57,7 +70,7 @@ export async function POST(request: NextRequest) {
     // Email content
     const mailOptions = {
       from: `"Romano Botta Форма" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
-      to: process.env.SMTP_TO || process.env.SMTP_USER,
+      to: recipientEmail,
       replyTo: email,
       subject: `Новая заявка от ${name} (${company})`,
       html: `
