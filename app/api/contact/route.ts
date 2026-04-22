@@ -2,13 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 import nodemailer from "nodemailer"
 
 function getRecipientEmail() {
-  // Support multiple common env names to avoid deploy-time confusion.
-  return (
-    process.env.SMTP_TO ||
-    process.env.CONTACT_EMAIL ||
-    process.env.MAIL_TO ||
-    process.env.FORM_RECEIVER_EMAIL
-  )
+  return process.env.SMTP_TO?.trim()
 }
 
 export async function POST(request: NextRequest) {
@@ -38,10 +32,12 @@ export async function POST(request: NextRequest) {
         recipient: !!recipientEmail,
       })
       return NextResponse.json(
-        { error: "SMTP ayarları eksik. SMTP_HOST, SMTP_USER/SMTP_FROM, SMTP_PASSWORD ve alıcı mail (SMTP_TO/CONTACT_EMAIL/MAIL_TO/FORM_RECEIVER_EMAIL) tanımlı olmalı." },
+        { error: "SMTP ayarları eksik. SMTP_HOST, SMTP_USER/SMTP_FROM, SMTP_PASSWORD ve SMTP_TO tanımlı olmalı." },
         { status: 500 }
       )
     }
+
+    console.log("[contact] recipient email:", recipientEmail)
 
     // Create transporter with SMTP settings
     const transporter = nodemailer.createTransport({
