@@ -18,32 +18,34 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // SMTP_USER veya SMTP_FROM kullanılabilir
-    const smtpUser = process.env.SMTP_USER || process.env.SMTP_FROM
+    // Brevo: SMTP_USER = SMTP login, SMTP_FROM = gönderici adresi (örn. web@digitalup.tr)
+    const smtpUser = process.env.SMTP_USER
+    const smtpFrom = process.env.SMTP_FROM || process.env.SMTP_USER
 
     // Check if SMTP is configured
     const recipientEmail = getRecipientEmail()
 
-    if (!process.env.SMTP_HOST || !smtpUser || !process.env.SMTP_PASSWORD || !recipientEmail) {
+    if (!process.env.SMTP_HOST || !smtpUser || !process.env.SMTP_PASSWORD || !smtpFrom || !recipientEmail) {
       console.error("[v0] SMTP not configured:", {
         host: !!process.env.SMTP_HOST,
         user: !!smtpUser,
         pass: !!process.env.SMTP_PASSWORD,
+        from: !!smtpFrom,
         recipient: !!recipientEmail,
       })
       return NextResponse.json(
-        { error: "SMTP ayarları eksik. SMTP_HOST, SMTP_USER/SMTP_FROM, SMTP_PASSWORD ve SMTP_TO tanımlı olmalı." },
+        { error: "SMTP ayarları eksik. SMTP_HOST, SMTP_USER, SMTP_PASSWORD, SMTP_FROM ve SMTP_TO tanımlı olmalı." },
         { status: 500 }
       )
     }
 
     console.log("[contact] recipient email:", recipientEmail)
 
-    // Create transporter with SMTP settings
+    // Create transporter with SMTP settings (Brevo: smtp-relay.brevo.com:587)
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT) || 587,
-      secure: process.env.SMTP_SECURE === "true", // true for 465, false for other ports
+      secure: process.env.SMTP_SECURE === "true", // true for 465, false for 587/STARTTLS
       auth: {
         user: smtpUser,
         pass: process.env.SMTP_PASSWORD,
@@ -65,7 +67,7 @@ export async function POST(request: NextRequest) {
 
     // Email content
     const mailOptions = {
-      from: `"Romano Botta Форма" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
+      from: `"Romano Botta Форма" <${smtpFrom}>`,
       to: recipientEmail,
       replyTo: email,
       subject: `Новая заявка от ${name} (${company})`,
